@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="ring" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#a8e6ff" stop-opacity="0"/>
+      <stop offset="0.35" stop-color="#e4ecf7"/>
+      <stop offset="0.7" stop-color="#c8ff3d"/>
+      <stop offset="1" stop-color="#a8e6ff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0b1226"/>
+  <g transform="translate(14 14)">
+    <rect x="0" y="0" width="17" height="17" rx="2.5" fill="#a8e6ff"/>
+    <rect x="19" y="0" width="17" height="17" rx="2.5" fill="#8d7bff"/>
+    <rect x="0" y="19" width="17" height="17" rx="2.5" fill="#c8ff3d"/>
+    <rect x="19" y="19" width="17" height="17" rx="2.5" fill="#ff7ad9"/>
+  </g>
+  <ellipse cx="32" cy="32" rx="30" ry="9" fill="none" stroke="url(#ring)" stroke-width="2.2" transform="rotate(-18 32 32)"/>
+</svg>
