@@ -10,7 +10,7 @@ import { ToastProvider, useToast } from './components/Toast'
 import { setMarket } from './audio/resolve'
 import { Logo } from './components/Logo'
 import { VolumeControl } from './components/VolumeControl'
-import { beginLogin, getClientId, handleRedirect, isLoggedIn, logout, setClientId } from './spotify/auth'
+import { LOGIN_DISABLED_NOTE, LOGIN_ENABLED, beginLogin, getClientId, handleRedirect, isLoggedIn, logout, setClientId } from './spotify/auth'
 import { getMe, type SpotifyUser } from './spotify/api'
 import { buildLibrary } from './spotify/albums'
 import { makeDemoLibrary } from './demo/demoAlbums'
@@ -136,9 +136,17 @@ function Inner() {
                 <button className="btn btn-sm" onClick={goHome}>
                   ← Back
                 </button>
-                <button className="btn btn-sm btn-green" onClick={() => (needsSetup ? goHome() : login())}>
-                  Log in with Spotify
-                </button>
+                {LOGIN_ENABLED ? (
+                  <button className="btn btn-sm btn-green" onClick={() => (needsSetup ? goHome() : login())}>
+                    Log in with Spotify
+                  </button>
+                ) : (
+                  <span className="tip tip-left" data-tip={LOGIN_DISABLED_NOTE}>
+                    <button className="btn btn-sm btn-green is-disabled" aria-disabled="true" onClick={(e) => e.preventDefault()}>
+                      Log in with Spotify
+                    </button>
+                  </span>
+                )}
               </>
             ) : (
               <button className="btn btn-sm" onClick={doLogout}>

@@ -20,7 +20,7 @@ export interface PlayerState {
 
 const SOUND_KEY = 'soundwall.sound'
 const VOLUME_KEY = 'soundwall.volume'
-const DEFAULT_VOLUME = 0.3
+const DEFAULT_VOLUME = 0 // start muted; the slider is right there
 const FADE_IN = 0.45
 const FADE_OUT = 0.3
 const END_FADE = 1.6

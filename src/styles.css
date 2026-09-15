@@ -388,9 +388,63 @@ button {
   transform: translateY(0) scale(0.99);
 }
 
-.btn:disabled {
-  opacity: 0.5;
+.btn:disabled,
+.btn.is-disabled {
+  opacity: 0.45;
   cursor: not-allowed;
+  filter: saturate(0.4);
+  box-shadow: none;
+}
+
+.btn.is-disabled:hover {
+  transform: none;
+}
+
+/* hover tooltip */
+.tip {
+  position: relative;
+  display: inline-block;
+}
+
+.tip::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%) translateY(4px);
+  width: max-content;
+  max-width: 280px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: rgba(8, 12, 24, 0.95);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 12.5px;
+  line-height: 1.4;
+  text-align: left;
+  white-space: normal;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s, transform 0.15s;
+  z-index: 50;
+}
+
+.tip:hover::after,
+.tip:focus-within::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tip.tip-left::after {
+  left: auto;
+  right: 0;
+  transform: translateY(4px);
+}
+
+.tip.tip-left:hover::after,
+.tip.tip-left:focus-within::after {
+  transform: translateY(0);
 }
 
 .btn-lime,

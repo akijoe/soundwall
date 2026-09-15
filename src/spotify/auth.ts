@@ -16,6 +16,16 @@ for (const [from, to] of [
   if (v) localStorage.removeItem(from)
 }
 
+/**
+ * Spotify's Development Mode caps hobby apps at five allow-listed users, so
+ * the login button is disabled for visitors; the app owner (and friends on
+ * the allow-list) can still open the site with `?login` to sign in.
+ */
+export const LOGIN_ENABLED = new URLSearchParams(window.location.search).has('login') || sessionStorage.getItem('soundwall.login') === '1'
+if (LOGIN_ENABLED) sessionStorage.setItem('soundwall.login', '1')
+
+export const LOGIN_DISABLED_NOTE = "Logging in is switched off: Spotify's API rules only allow five users for apps like this one. The demo works without an account."
+
 export const SCOPES = ['user-top-read', 'user-library-read', 'user-read-recently-played', 'user-read-private']
 
 interface StoredToken {

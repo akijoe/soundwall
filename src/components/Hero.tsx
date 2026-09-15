@@ -7,6 +7,7 @@ import { makeDemoLibrary } from '../demo/demoAlbums'
 import { RoomEnv } from './preview/RoomEnv'
 import { SetupWizard } from './SetupWizard'
 import { Logo } from './Logo'
+import { LOGIN_DISABLED_NOTE, LOGIN_ENABLED } from '../spotify/auth'
 
 interface Props {
   needsSetup: boolean
@@ -128,10 +129,16 @@ export function Hero({ needsSetup, error, onLogin, onDemo, onSaveClientId, onRes
             <button className="btn btn-green btn-lg" onClick={onResume}>
               Open your collage
             </button>
-          ) : (
+          ) : LOGIN_ENABLED ? (
             <button className="btn btn-green btn-lg" onClick={onLogin}>
               Log in with Spotify
             </button>
+          ) : (
+            <span className="tip" data-tip={LOGIN_DISABLED_NOTE}>
+              <button className="btn btn-green btn-lg is-disabled" aria-disabled="true" onClick={(e) => e.preventDefault()}>
+                Log in with Spotify
+              </button>
+            </span>
           )}
           <button className="btn btn-lg" onClick={onDemo}>
             Try the demo
