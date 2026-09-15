@@ -56,8 +56,8 @@ gh repo create soundwall --public --source=. --push
 gh secret set SPOTIFY_CLIENT_ID --body "<your client id>"
 ```
 
-Then on GitHub: **Settings → Pages → Build and deployment → Source: GitHub
-Actions**. The workflow ([.github/workflows/deploy.yml](.github/workflows/deploy.yml))
+The workflow ([.github/workflows/deploy.yml](.github/workflows/deploy.yml))
+enables Pages itself on its first run (source: GitHub Actions) and
 reads the `SPOTIFY_CLIENT_ID` secret and passes it to the build as
 `VITE_SPOTIFY_CLIENT_ID`, so the ID never appears in the source. (You can also
 add it under Settings → Secrets and variables → Actions → New repository

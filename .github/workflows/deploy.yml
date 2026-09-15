@@ -30,6 +30,8 @@ jobs:
           #   gh secret set SPOTIFY_CLIENT_ID --body "<your client id>"
           VITE_SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true # turns Pages on (source: GitHub Actions) on first run
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
