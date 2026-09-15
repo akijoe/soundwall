@@ -18,6 +18,14 @@ export function Footer({ compact = false }: { compact?: boolean }) {
         <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">
           CC BY 4.0
         </a>
+        {' · '}Phone case model:{' '}
+        <a href="https://sketchfab.com/3d-models/iphone-17-pro-phone-case-4883a95f86ea4835880ea8c7bcf614ba" target="_blank" rel="noreferrer">
+          “iPhone 17 Pro Phone Case”
+        </a>{' '}
+        by{' '}
+        <a href="https://sketchfab.com/Henrybenrydude657" target="_blank" rel="noreferrer">
+          Henrybenrydude657
+        </a>
       </div>
     </footer>
   )
